@@ -24,5 +24,9 @@ class RegisterMoviesListAPIView(generics.ListCreateAPIView):
     queryset = RegisterMovie.objects.order_by('pk')
     serializer_class = RegisterMovieSerializer
 
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['registry_id', 'card_number', 'film_name', 'director', 'studio',
+                     'category', 'view_movie', 'color', 'age_category', 'country_of_production']
+
     pagination_class = RegisterMoviesPagination
 
