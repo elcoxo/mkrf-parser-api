@@ -5,6 +5,7 @@ class RegisterMovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = RegisterMovie
         fields = (
+            'id',
             'registry_id',
             'card_number',
             'film_name',
@@ -19,6 +20,8 @@ class RegisterMovieSerializer(serializers.ModelSerializer):
             'year_of_production',
             'country_of_production',
         )
+
+    read_only_fields = 'id'
 
     def validate_film_name(self, value):
         if not value or not value.strip():
