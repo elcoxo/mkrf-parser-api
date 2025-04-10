@@ -19,3 +19,8 @@ class RegisterMovieSerializer(serializers.ModelSerializer):
             'year_of_production',
             'country_of_production',
         )
+
+    def validate_film_name(self, value):
+        if not value or not value.strip():
+            raise serializers.ValidationError("Film name cannot be empty.")
+        return value
