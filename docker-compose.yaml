@@ -1,0 +1,33 @@
+version: '3.0'
+
+services:
+
+  db:
+    image: postgres
+    env_file:
+      - .env
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    restart: always
+    volumes:
+      - pg_data:/var/lib/postgresql/data/pgdata
+    ports:
+      - '5432:5432'
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: on-failure
+    volumes:
+      - ./api:/app/api
+    env_file:
+      - .env
+    command: bash -c 'python manage.py makemigrations register_movies && python manage.py migrate && python manage.py runserver 0.0.0.0:8001'
+    ports:
+      - '8000:8001'
+    depends_on:
+      - db
+
+volumes:
+  pg_data:
