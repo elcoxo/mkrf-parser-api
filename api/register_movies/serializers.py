@@ -1,20 +1,21 @@
 from rest_framework import serializers
-from .models import RegisterMovie
+from api.register_movies.models import RegisterMovie
 
 class RegisterMovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = RegisterMovie
         fields = (
-            'cardNumber',
-            'filmname',
-            'cardDate',
+            'registry_id',
+            'card_number',
+            'film_name',
+            'card_date',
             'director',
             'studio',
             'category',
-            'viewMovie',
+            'view_movie',
             'color',
-            'ageCategory',
-            'startDateRent',
-            'crYearOfProduction',
-            'countryOfProduction',
+            'age_category',
+            'start_date_rent',
+            'year_of_production',
+            'country_of_production',
         )
