@@ -21,8 +21,8 @@ load_dotenv()
 DB_NAME=os.getenv('DB_NAME')
 DB_USER=os.getenv('DB_USER')
 DB_PASS=os.getenv('DB_PASS')
-DB_HOST=os.getenv('DB_HOST')
-DB_PORT=os.getenv('DB_PORT')
+DB_HOST=os.getenv('DB_HOST', 'localhost')
+DB_PORT=os.getenv('DB_PORT', '5432')
 
 
 
@@ -35,7 +35,7 @@ SECRET_KEY = 'django-insecure-($ppet_#&)4v#i$*jrx2sq-lrz(q5ghs!sf^6uvx#z2e&r7t(9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
