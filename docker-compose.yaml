@@ -14,15 +14,30 @@ services:
     ports:
       - '5432:5432'
 
-  web:
+  parser:
     build:
       context: .
       dockerfile: Dockerfile
+    restart: on-failure
+    entrypoint: /app/parsers/entrypoint.sh
+    volumes:
+      - ./parsers:/app/parsers
+    env_file:
+      - .env
+    working_dir: /app/parsers
+    depends_on:
+      - db
+
+  django:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
     restart: on-failure
     volumes:
       - ./api:/app/api
     env_file:
       - .env
+    working_dir: /app/api
     command: bash -c 'python manage.py makemigrations register_movies && python manage.py migrate && python manage.py runserver 0.0.0.0:8001'
     ports:
       - '8000:8001'
