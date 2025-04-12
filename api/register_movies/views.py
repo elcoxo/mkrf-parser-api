@@ -6,9 +6,9 @@ from rest_framework import filters, generics
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.response import Response
 
-from api.register_movies.filters import RegisterMovieFilter
-from api.register_movies.models import RegisterMovie
-from api.register_movies.serializers import RegisterMovieSerializer
+from .filters import RegisterMovieFilter
+from .models import RegisterMovie
+from .serializers import RegisterMovieSerializer
 
 
 class RegisterMoviesPagination(PageNumberPagination):

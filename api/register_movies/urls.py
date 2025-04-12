@@ -1,7 +1,7 @@
 from django.urls import path
 
-from api.register_movies.apps import RegisterMoviesConfig
-from api.register_movies.views import RegisterMoviesListAPIView, RegisterMovieDetailAPIView
+from .apps import RegisterMoviesConfig
+from .views import RegisterMoviesListAPIView, RegisterMovieDetailAPIView
 
 app_name = RegisterMoviesConfig.name
 

@@ -1,5 +1,5 @@
 import django_filters
-from api.register_movies.models import RegisterMovie
+from .models import RegisterMovie
 
 class RegisterMovieFilter(django_filters.FilterSet):
     class Meta:

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.register_movies.models import RegisterMovie
+from .models import RegisterMovie
 
 class RegisterMovieSerializer(serializers.ModelSerializer):
     class Meta:
