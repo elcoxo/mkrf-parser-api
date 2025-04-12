@@ -10,7 +10,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from .dao import RegisterMovieDAO
 from .schemas import RegisterMoviePydantic
-from parsers.config.database import connection
+from config.database import connection
 
 load_dotenv()
 
@@ -23,8 +23,8 @@ HEADERS = {
 
 URL = 'https://opendata.mkrf.ru/datatable/register_movies_6013e9b63f75a075a5cb7599/'
 
-PAGE_SIZE = os.getenv('PAGE_SIZE')
-REQUEST_RATE = os.getenv('REQUEST_RATE')
+PAGE_SIZE = int(os.getenv('PAGE_SIZE'))
+REQUEST_RATE = int(os.getenv('REQUEST_RATE'))
 
 
 async def get_page(session: aiohttp.ClientSession, start: int, end: int) -> List[dict]:

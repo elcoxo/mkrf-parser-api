@@ -3,7 +3,7 @@ from datetime import date
 from sqlalchemy import Integer, Date, Text, String, BigInteger
 from sqlalchemy.orm import Mapped, mapped_column
 
-from parsers.config.database import Base
+from config.database import Base
 
 
 class RegisterMovie(Base):

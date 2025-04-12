@@ -1,4 +1,4 @@
-from parsers.config.base import BaseDAO
+from config.base import BaseDAO
 from .models import RegisterMovie
 
 
