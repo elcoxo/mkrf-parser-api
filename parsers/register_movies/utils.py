@@ -1,5 +1,8 @@
+import os
 import aiohttp
 import asyncio
+
+from dotenv import load_dotenv
 
 from loguru import logger
 from typing import List
@@ -8,6 +11,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from .dao import RegisterMovieDAO
 from .schemas import RegisterMoviePydantic
 from parsers.config.database import connection
+
+load_dotenv()
 
 HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
@@ -18,8 +23,8 @@ HEADERS = {
 
 URL = 'https://opendata.mkrf.ru/datatable/register_movies_6013e9b63f75a075a5cb7599/'
 
-PAGE_SIZE = 100
-REQUEST_RATE = 10
+PAGE_SIZE = os.getenv('PAGE_SIZE')
+REQUEST_RATE = os.getenv('REQUEST_RATE')
 
 
 async def get_page(session: aiohttp.ClientSession, start: int, end: int) -> List[dict]:
