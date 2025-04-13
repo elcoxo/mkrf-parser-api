@@ -71,7 +71,13 @@ docker pull temets/mkrf-django-api:latest
 docker volume create pg_data
 ```
 
-3. Запуск образов:
+3. Создадим сеть
+
+```
+docker network create mkrf-network
+```
+
+4. Запуск образов:
 
 <details>
 
@@ -365,7 +371,6 @@ DELETE http://localhost:8000/api/v1/register_movies/{id}
 
 * `lint` – проверка кода используя линтер `Ruff`
 * `test` – запуск тестов `pytest`
-
 
 ![image](https://github.com/user-attachments/assets/abebb5c9-b413-4da3-b722-818dbf5f1f47)
 

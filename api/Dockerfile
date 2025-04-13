@@ -11,7 +11,7 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-COPY . /app/api
+COPY api /app/api
 COPY .env .
 
 WORKDIR /app/api
