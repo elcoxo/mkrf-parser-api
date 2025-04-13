@@ -33,7 +33,7 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: mkrf_db
+          POSTGRES_DB: postgres
         ports:
           - 5432:5432
         options: >-
@@ -44,7 +44,7 @@ jobs:
 
     strategy:
       matrix:
-        python-version: ["3.10"]
+        python-version: [ "3.10" ]
 
     steps:
       - uses: actions/checkout@v3
@@ -62,7 +62,7 @@ jobs:
       - name: Set up .env file
         run: |
           cp .env.example .env
-          sed -i 's/DB_HOST=localhost/DB_HOST=127.0.0.1/' .env
+          sed -i 's/^DB_HOST=.*/DB_HOST=localhost/' .env
 
       - name: Run migrations
         run: |
