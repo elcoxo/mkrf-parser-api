@@ -11,7 +11,16 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-COPY . .
+COPY . /app/parsers
+COPY .env .
+
+WORKDIR /app/parsers
+ENTRYPOINT ["/app/parsers/entrypoint.sh"]
+
+
+
+
+
 
 
 
