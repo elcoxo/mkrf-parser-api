@@ -1,10 +1,11 @@
 import pytest
-from datetime import date
 from rest_framework.test import APIClient
+
 
 @pytest.fixture
 def client():
     return APIClient()
+
 
 @pytest.fixture
 def movie_payloads():

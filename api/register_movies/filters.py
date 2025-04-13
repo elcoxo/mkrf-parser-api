@@ -1,6 +1,7 @@
 import django_filters
 from .models import RegisterMovie
 
+
 class RegisterMovieFilter(django_filters.FilterSet):
     class Meta:
         model = RegisterMovie

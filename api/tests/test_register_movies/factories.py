@@ -1,6 +1,6 @@
 import factory
-from datetime import date
 from register_movies.models import RegisterMovie
+
 
 class RegisterMovieFactory(factory.django.DjangoModelFactory):
     class Meta:

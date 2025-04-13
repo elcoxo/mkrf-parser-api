@@ -7,10 +7,10 @@ from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine, Asyn
 
 load_dotenv()
 
-DB_HOST=os.getenv('DB_HOST')
-DB_DATABASE=os.getenv('DB_NAME')
-DB_USERNAME=os.getenv('DB_USER')
-DB_PASSWORD=os.getenv('DB_PASS')
+DB_HOST = os.getenv('DB_HOST')
+DB_DATABASE = os.getenv('DB_NAME')
+DB_USERNAME = os.getenv('DB_USER')
+DB_PASSWORD = os.getenv('DB_PASS')
 
 SQLALCHEMY_DATABASE_URL = f"postgresql+asyncpg://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}/{DB_DATABASE}"
 
@@ -22,6 +22,7 @@ async_session_maker = async_sessionmaker(bind=engine, class_=AsyncSession, expir
 
 Base: DeclarativeMeta = declarative_base()
 
+
 def connection(method):
     """
     Decorator for database that enables automatic session creation and closure.
@@ -30,6 +31,7 @@ def connection(method):
     wrapper: accepts all arguments of the original function
     async_session_maker(): automatically creates and closes a session in async mode
     """
+
     async def wrapper(*args, **kwargs):
         async with async_session_maker() as session:
             try:

@@ -1,5 +1,4 @@
 import math
-from collections import OrderedDict
 
 from rest_framework.pagination import PageNumberPagination
 from rest_framework import filters, generics
@@ -16,6 +15,7 @@ class RegisterMoviesPagination(PageNumberPagination):
     max_page_size = 100
     page_query_param = 'page'
     page_size_query_param = 'size'
+
     def get_paginated_response(self, data):
         total_count = self.page.paginator.count
         page_size = self.get_page_size(self.request)
@@ -32,6 +32,7 @@ class RegisterMoviesPagination(PageNumberPagination):
             'countItemsOnPage': page_size,
             'results': data
         })
+
 
 class RegisterMoviesListAPIView(generics.ListCreateAPIView):
     """
@@ -51,6 +52,7 @@ class RegisterMoviesListAPIView(generics.ListCreateAPIView):
 
     pagination_class = RegisterMoviesPagination
 
+
 class RegisterMovieDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     """
     View to single registered movie by primary key.
@@ -62,4 +64,3 @@ class RegisterMovieDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = RegisterMovie.objects.all()
     serializer_class = RegisterMovieSerializer
     http_method_names = ['get', 'patch', 'delete']
-

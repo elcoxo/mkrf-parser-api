@@ -1,8 +1,7 @@
 import pytest
 
 from register_movies.models import RegisterMovie
-from register_movies.serializers import RegisterMovieSerializer
-from tests.test_register_movies.conftest import movie_payloads
+
 
 @pytest.mark.django_db
 def test_register_movie_create(movie_payloads):
@@ -12,6 +11,7 @@ def test_register_movie_create(movie_payloads):
     assert movie.film_name == "Порко Россо"
     assert movie.card_date == '2025-04-01'
     assert movie.year_of_production == 1992
+
 
 @pytest.mark.django_db
 def test_register_movie_create_minimal(movie_payloads):

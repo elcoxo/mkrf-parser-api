@@ -2,6 +2,7 @@ import pytest
 
 from .factories import RegisterMovieFactory
 
+
 @pytest.mark.django_db
 def test_register_movie_list_search(client):
     RegisterMovieFactory(film_name="Порко Россо")
@@ -17,6 +18,7 @@ def test_register_movie_list_search(client):
     assert len(results) == 2
     assert "Порко Россо" in film_names
     assert "порко галлиард" in director_names
+
 
 @pytest.mark.django_db
 def test_search_with_pagination(client):
