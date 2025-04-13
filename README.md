@@ -341,7 +341,7 @@ DELETE http://localhost:8000/api/v1/register_movies/{id}
 Реализует асинхронный сбор данных с
 использованием [XHR-запросов](https://opendata.mkrf.ru/datatable/register_movies_6013e9b63f75a075a5cb7599/).
 
-![image](https://github.com/user-attachments/assets/49ec6686-3bbd-4a07-8570-3cae835eb15a)
+![image](https://github.com/user-attachments/assets/498e0369-c6a5-40f9-926f-5f4a706bf67c)
 
 Запросы собираются постранично(`aiohttp`) и выполняются пачками(`asyncio.gather`).
 
