@@ -1,8 +1,7 @@
 import pytest
 
-from api.register_movies.serializers import RegisterMovieSerializer
-from api.tests.test_register_movies.conftest import movie_payloads, client
-from api.tests.test_register_movies.factories import RegisterMovieFactory
+from tests.test_register_movies.conftest import movie_payloads, client
+from tests.test_register_movies.factories import RegisterMovieFactory
 
 @pytest.mark.django_db
 def test_register_movie_list(client):

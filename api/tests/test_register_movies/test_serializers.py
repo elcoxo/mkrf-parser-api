@@ -1,7 +1,7 @@
 import pytest
 
-from api.register_movies.serializers import RegisterMovieSerializer
-from api.tests.test_register_movies.conftest import movie_payloads
+from register_movies.serializers import RegisterMovieSerializer
+from tests.test_register_movies.conftest import movie_payloads
 
 @pytest.mark.django_db
 def test_serializer_valid_data(movie_payloads):
